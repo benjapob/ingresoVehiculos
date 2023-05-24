@@ -279,7 +279,12 @@ let actualizarVehiculo = function() {
             document.getElementById("res8").value = "";
             document.getElementById("selecc").selected = "true";
             document.getElementById("vendido").checked = false;
-            let string = `<td>${v.getMarca}-${v.getModelo}</td> <td>${v.getPatente}</td> <td>${v.getValorFinal}</td> <td>${v.getKm}</td> <td>${v.getColor}</td> <td>${v.getEstado}</td> <td>${v.getTitular.getNombre} ${v.getTitular.getApellido}</td> <td>${v.getTitular.getRut}</td> <td><input disabled checked class="form-check-input" type="checkbox" value="" id="vendido"></td>`
+            if (vendido) {
+                string = `<td>${v.getMarca}-${v.getModelo}</td> <td>${v.getPatente}</td> <td>${v.getValorFinal}</td> <td>${v.getKm}</td> <td>${v.getColor}</td> <td>${v.getEstado}</td> <td>${v.getTitular.getNombre} ${v.getTitular.getApellido}</td> <td>${v.getTitular.getRut}</td> <td><input disabled checked class="form-check-input" type="checkbox" value="" id="vendido"></td>`
+            }
+            else {
+                string = `<td>${v.getMarca}-${v.getModelo}</td> <td>${v.getPatente}</td> <td>${v.getValorFinal}</td> <td>${v.getKm}</td> <td>${v.getColor}</td> <td>${v.getEstado}</td> <td>${v.getTitular.getNombre} ${v.getTitular.getApellido}</td> <td>${v.getTitular.getRut}</td> <td><input disabled unchecked class="form-check-input" type="checkbox" value="" id="vendido"></td>`
+            }
             document.getElementById(`tr${pos}`).innerHTML = string.trim();
 
             alert("Vehículo actualizado correctamente!")
@@ -297,7 +302,7 @@ let actualizarVehiculo = function() {
     }
 }
 
-function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
+/* function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
     try {
       decimalCount = Math.abs(decimalCount);
       decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
@@ -314,4 +319,4 @@ function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
     } catch (e) {
       console.log(e)
     }
-  };
+  }; */
